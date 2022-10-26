@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>lung Cancer Recurrence Prediction</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    </head>
+    <body>
+        <div class="container">
+            <img src="static/css/logo2.jpg" alt="logo">
+            <h1>
+                LUNG CANCER RISK ASSESSMENT
+            </h1>
+        </div>
+        <aside id="sidebar">
+            <p>
+                <ul>
+                    <li>This tool can only estimate the risk of recurrence of breast cancer on women</li>
+                    <li>The risk estimation of recurrence of breast cancer is for over next 5 years<br>
+                         (It cannot be used to estimate risk for women without a previous history of breast cancer) </li>
+                </ul>
+            </p>
+        </aside>
+        <div class="wrapper">
+            <form action="{{ url_for('predict')}}" method="POST">
+                <h3 class="h3">USER DETAILS:</h3>
+                <div class="input_fields">
+                    <label>Age</label>
+                    <input type="text">
+                </div>
+
+                <div class="input_fields">
+                    <label>SMOKING</label>
+                    <select name="smoke">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+
+                <div class="input_fields">
+                    <label>YELLOW_FINGERS</label>
+                    <select name="yellow">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>ANXIETY</label>
+                    <select name="anxiety">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>PEER_PRESSURE</label>
+                    <select name="peer">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>CHRONIC DISEASE</label>
+                    <select name="cronic">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>FATIGUE </label>
+                    <select name="fatigue">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>ALLERGY </label>
+                    <select name="allergy">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>WHEEZING</label>
+                    <select name="wheezing">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>ALCOHOL CONSUMING</label>
+                    <select name="alcohol">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>COUGHING</label>
+                    <select name="COUGHING">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>SHORTNESS OF BREATH</label>
+                    <select name="breath">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>SMOKING</label>
+                    <select name="smoke">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>SWALLOWING DIFFICULTY</label>
+                    <select name="swallow">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>CHEST PAIN</label>
+                    <select name="chest pain">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+
+                <div class="input_fields">
+                    <label>LUNG_CANCER</label>
+                    <select name="lung cancer">
+                        <option value="1">YES</option>
+                        <option value="2">NO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="CHECK">
+            </div>
+               
+            </form>
+        </div>
+        <div id="middlebar">
+            <p>
+                <h4>Some of the symptoms of recurrent breast cancer include:
+                    <ul>
+                        <p>Local Recurrence:</p>
+                        <li>A new lump in your breast or irregular area of firmness</li>
+                        <li>Redness or swelling of the skin in or around the breast area</li>
+                        <li>Nipple discharge, flattening or other changes to the nipple</li>
+                        <li>New thickening on or near the mastectomy scar</li>
+                    </ul>
+                    <ul>
+                        <p>Regional Recurrence:</p>
+                        <li>A lump or swelling in the lymph nodes under the arm, above the collarbone, or near the breastbone</li>
+                        <li>Swelling in the arm on the same side where the breast cancer was first found</li>
+                        <li>Constant pain in arm and shoulder or chest</li>
+                    </ul>
+                    <ul>
+                        <p>Distant Recurrence:</p>
+                        <li>Symptoms can vary depending on the location, and can include bone pain, 
+                            numbness or weakness anywhere in the body, constant dry cough, loss of appetite, severe headache, 
+                            vision problems, constant nausea, weight loss, seizures, loss of balance.</li>
+                    </ul>
+                </h4>
+                
+            </p>
+        </div>
+        <div class="res">
+                {{prediction_text}}
+        </div>
+    </body>
+</html>
